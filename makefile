@@ -1,3 +1,7 @@
+# makefile: Builds the program. Executable is called "signal". 
+#       By: Chris Carlson
+#     Date: November 8, 2018
+
 CC = gcc
 CFLAGS = -g -Wall -pedantic -std=c99
 LIBRARIES =  

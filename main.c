@@ -14,8 +14,6 @@ int main(void){
 	int ret = 0;
 	unsigned int alarmSeconds = 3;
 	alarmsHandled = 0;
-	
-	
 
 	signal(SIGALRM, alarmHandler);
 	signal(SIGINT, intHandler);

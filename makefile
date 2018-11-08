@@ -12,5 +12,5 @@ main.o : main.h
 
 
 clean: 
-	rm -f *.o core semaphore *.log
+	rm -f *.o core signal *.log
 

@@ -12,17 +12,35 @@
 
 int main(void){
 	int ret = 0;
-	alarmSig = false;
-	intSig = false;
+	unsigned int alarmSeconds = 3;
+	alarmsHandled = 0;
+	intsHandled = 0;
+	
+	
+
+	signal(SIGALRM, alarmHandler);
+	signal(SIGINT, intHandler);
+
+	while(alarmsHandled < 2){
+		alarm(alarmSeconds--);
+		if(sleep(20)){
+			printf("alarm interrupted sleep\n");
+		}
+	}
+
+	pause();
 
 	return(ret);
 }
 
 
 void alarmHandler(int sigVal){
-
+	alarmsHandled++;
+	printf("in alarm\n");
+	signal(SIGALRM, alarmHandler);
 }
 
 void intHandler(int sigVal){
-	
+	printf("\ncontrol c handled\n");
+	signal(SIGINT, intHandler);
 }
